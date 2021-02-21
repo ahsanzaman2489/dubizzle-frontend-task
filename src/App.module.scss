@@ -1,0 +1,17 @@
+@import "./utils/variables";
+
+:global {
+  * {
+    box-sizing: border-box;
+  }
+
+  body, html, #root {
+    height: 100%;
+  }
+
+  body {
+    background: $light-gray;
+    font-family: Arial, sans-serif;
+    margin: 0;
+  }
+}
