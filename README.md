@@ -71,6 +71,9 @@ My Approach for this task was to research and get the best options to complete t
 * To more focus on functionality against design , I covered mostly all test cases as well
 * Responsive design base on flex box
 * Child routing added for rending list 
+* rendering 20 gist at the moment 
+* Load more button will fetch 10 more results on click with debounce of one second
+* Card will forks and files if available in api response 
 
 ## Git access token
 Please add you git hub access token from your setting -> developer options -> personal access token into .env file under
