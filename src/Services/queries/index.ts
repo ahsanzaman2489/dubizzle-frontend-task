@@ -6,6 +6,16 @@ const pageInfo = `pageInfo {
       startCursor
     }`;
 
+const forks = ` forks(first: 3) {
+                          nodes {
+                            owner {
+                             login
+                             avatarUrl(size: 50)
+                             url
+            }
+      }
+}`;
+
 const files = `files {
                       encodedName
                       encoding
@@ -21,38 +31,18 @@ const files = `files {
                       size
                     }`;
 
-const users = ` ... on User {           
-                      avatarUrl(size: 100)
-                      login
-                      name
-                      url
-                       repositories {
-                        totalCount
-                      }
-                      followers {
-                        totalCount
-                      }
-                      following {
-                        totalCount
-                      }
-                    }
-}`;
-
-
 export const searchUserQuery = `
-     query search($searchString: String!,$first: Int = 50) {
+     query search($searchString: String!,$first: Int = 20) {
             user(login: $searchString) {
                 gists(first: $first, privacy: PUBLIC) {
                   ${pageInfo}
                   nodes {
                     ${files}
-                    forks(first: 3) {
-                      nodes {
-                        owner {
-                          login
-                        }
-                      }
-                    }
+                    createdAt
+                    name
+                    description
+                    url
+                    ${forks}
                   }
                 }
              }
@@ -60,11 +50,19 @@ export const searchUserQuery = `
 
 
 export const loadMoreUserQuery = `
-     query search($searchString: String!,$first: Int = 30 , $after:String!) {
-            search(query: $searchString, type: USER,first:$first,after:$after){
-            userCount
-            ${pageInfo}
-                nodes{
-                 ${users}
-            }  
+     query search($searchString: String!,$first: Int = 10 , $after:String!) {
+            user(login: $searchString){
+                gists(first: $first, privacy: PUBLIC,after:$after) {
+                      ${pageInfo}
+                      nodes {
+                        ${files}
+                        createdAt
+                        name
+                        description
+                        url
+                        ${forks}
+                }
+            }
+                
+     } 
 }`

@@ -2,10 +2,27 @@
 
 .wrapper {
   display: flex;
-  margin-left: -10px;
-  margin-right: -10px;
+  flex-wrap: wrap;
 }
 
 .noData {
   text-align: center;
+  width: 100%;
+}
+
+.loadMore {
+
+  text-align: center;
+
+  button {
+    width: 300px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: $dark-blue;
+    color: $white;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }

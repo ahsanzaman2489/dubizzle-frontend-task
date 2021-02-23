@@ -1,9 +1,11 @@
 import React from 'react';
+import List from "../../componenets/List";
+import SingleUserCard from "../../componenets/SingleUserCard";
 
-const Users: React.FC<any> = ({}) => {
+const Users: React.FC<any> = ({usersList}) => {
     return (
         <>
-            <h1>Users</h1>
+            <List data={usersList} Component={SingleUserCard}/>
         </>
     )
 }

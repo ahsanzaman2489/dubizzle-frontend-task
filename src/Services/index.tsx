@@ -14,7 +14,7 @@ export const Service = async (params: any, query: string, type: string) => {
         if (cache) {
             const cacheObject = JSON.parse(cache[type]);
             if (cacheObject?.searchTerm === params.searchString) {
-                return {search: cacheObject}
+                return {user: cacheObject}
             }
         }
     }

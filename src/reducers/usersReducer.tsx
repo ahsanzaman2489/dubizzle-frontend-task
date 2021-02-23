@@ -1,4 +1,4 @@
-import {GIST_FETCHING, GIST_FETCHED, MORE_GIST_FETCHED} from '../utils/actionTypes';
+import {GIST_FETCHING, GIST_FETCHED, MORE_GIST_FETCHED, GIST_ERROR} from '../utils/actionTypes';
 
 const initialState = {
     isLoading: false,
@@ -21,6 +21,9 @@ const userReducer = (state = initialState, action: { type: any; payload: any; })
                 ...payload,
                 isLoading: false
             }
+        case GIST_ERROR:
+            return initialState
+
         case MORE_GIST_FETCHED:
             return {
                 ...state,

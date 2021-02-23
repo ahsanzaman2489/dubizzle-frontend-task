@@ -17,6 +17,7 @@ const Search: React.FC<any> = () => {
     const {users} = useSelector((state: any) => ({
         users: state.users
     }));
+
     return (
         <>
             <SearchBox/>

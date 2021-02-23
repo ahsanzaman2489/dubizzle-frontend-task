@@ -1,6 +1,102 @@
 @import "../../utils/variables";
 
 .card {
-  width: 33.33%;
+  flex-basis: calc(33.333333% - 20px);
+  padding: 20px;
+  margin-bottom: 20px;
+  background: #ffff;
+  margin-left: 10px;
+  margin-right: 10px;
+  border: 1px solid #d7d7d7;
+  border-radius: 7px;
+  display: flex;
+
+
+  .content {
+    margin-left: 0;
+    width: 100%;
+    position: relative;
+    font-size: 12px;
+
+    .name {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 16px;
+      color: $dark-blue;
+    }
+
+    .userName {
+      margin-top: 5px;
+      font-size: 12px;
+      margin-bottom: 40px;
+    }
+
+    .createdAt {
+      position: absolute;
+      right: 0;
+      top: 0;
+      color: $dark-gray;
+      margin: 0;
+    }
+
+    .avatar {
+      margin-left: 0;
+      margin-right: 10px;
+
+      img {
+        width: 30px;
+        border-radius: 100px;
+      }
+    }
+
+    .languageColor {
+      width: 10px;
+      height: 10px;
+      display: inline-block;
+      border-radius: 100px;
+    }
+
+    .files {
+      ul {
+        padding-left: 20px;
+        margin: 0;
+
+        li {
+          margin-bottom: 10px;
+          list-style: none;
+        }
+      }
+    }
+
+    .forks {
+      ul {
+        padding-left: 20px;
+        margin: 0;
+
+        li {
+          margin-bottom: 10px;
+          list-style: none;
+
+          a {
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .card {
+    flex-basis: calc(50% - 20px);
+  }
+}
+
+@media all and (max-width: 620px) {
+  .card {
+    flex-basis: calc(100% - 20px);
+  }
 }
 
